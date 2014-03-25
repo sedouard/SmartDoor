@@ -1,0 +1,40 @@
+﻿.loginscreen section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+.loginbanner {
+	-ms-grid-column: 1;
+    -ms-grid-row: 10;
+    -ms-grid-column-span: 40;
+    -ms-grid-row-span: 80;
+	font-size:180px
+}
+.facebookIcon {
+-ms-grid-column: 25;
+-ms-grid-row: 34;
+-ms-grid-column-span: 10;
+-ms-grid-row-span: 3;
+}
+#doorbellgrid {
+
+	-ms-grid-column: 33;
+	-ms-grid-row: 10;
+	-ms-grid-column-span: 18;
+	-ms-grid-row-span: 20;
+	z-index:-1
+	}
+#doorbellicon
+{
+	
+}
+#ui_FacebookIcon
+	{
+		border-width:0;
+		background-image:url('/images/connectfacebook.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		top:4.24px;
+		right:-13px;
+		height: 40.56px;
+		width: 227.44px;
+	}
