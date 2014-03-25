@@ -14,6 +14,7 @@
                 FacebookAuthenticate.onCompleted = function (suceeded, authToken) {
 
                     smartdoorClient.login('facebook', authToken).done(function (results) {
+
                         WinJS.Navigation.navigate("/pages/hub/hub.html", authToken);
                     });
 
