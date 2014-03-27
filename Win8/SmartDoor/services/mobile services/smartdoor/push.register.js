@@ -11,7 +11,7 @@
             var installationId = Windows.Security.Cryptography.CryptographicBuffer.encodeToBase64String(packageToken.id);
 
             Windows.Networking.PushNotifications.PushNotificationChannelManager.createPushNotificationChannelForApplicationAsync().done(function (channel) {
-                smartdoorClient.getTable("channels").insert({
+                g_smartdoorClient.getTable("channels").insert({
                     channelUri: channel.uri,
                     installationId: installationId
                 }).done(

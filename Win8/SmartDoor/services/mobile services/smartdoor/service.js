@@ -1,5 +1,7 @@
 ﻿// http://go.microsoft.com/fwlink/?LinkID=290993&clcid=0x409
-var smartdoorClient = new WindowsAzure.MobileServiceClient(
+var g_smartdoorClient = new WindowsAzure.MobileServiceClient(
                 "https://smartdoor.azure-mobile.net/",
-                "peefEQeMNDwZUHpOkaWCJEGfftxdKY53");
+                "HnAxDFiMSQATHNaCcgIpEllAhenguj14");
+var g_authToken;
+var g_userId;
         

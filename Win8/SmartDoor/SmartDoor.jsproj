@@ -88,9 +88,9 @@
     <None Include="SmartDoor_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="packages.config" />
-    <Content Include="pages\hub\hub.css" />
-    <Content Include="pages\hub\hub.html" />
-    <Content Include="pages\hub\hub.js" />
+    <Content Include="pages\doorCodeEnter\doorCodeEnter.css" />
+    <Content Include="pages\doorCodeEnter\doorCodeEnter.html" />
+    <Content Include="pages\doorCodeEnter\doorCodeEnter.js" />
     <Content Include="pages\section\section.css" />
     <Content Include="pages\section\section.html" />
     <Content Include="pages\section\section.js" />

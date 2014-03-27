@@ -11,16 +11,11 @@
             // TODO: Initialize the page here.
             console.log("Initialized login screen!");
             $("#ui_FacebookIcon").click(function (evt) {
-                FacebookAuthenticate.onCompleted = function (suceeded, authToken) {
-
-                    smartdoorClient.login('facebook', authToken).done(function (results) {
-
-                        WinJS.Navigation.navigate("/pages/hub/hub.html", authToken);
-                    });
-
-                    
-                };
-                FacebookAuthenticate.launchFacebookWebAuth('1403252139945261');
+                g_smartdoorClient.login("facebook").done(function (results) {
+                    g_authToken = results.mobileServiceAuthenticationToken;
+                    g_userId = results.userId;
+                    WinJS.Navigation.navigate("/pages/doorCodeEnter/doorCodeEnter.html");
+                });
             });
             
         },
