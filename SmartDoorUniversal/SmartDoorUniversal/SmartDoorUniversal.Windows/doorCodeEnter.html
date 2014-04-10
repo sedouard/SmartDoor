@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>hubPage</title>
+
+    <!-- 4 references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/doorCodeEnter/doorCodeEnter.css" rel="stylesheet" />
+    <script src="/js/data.js"></script>
+    <script src="/pages/doorCodeEnter/doorCodeEnter.js"></script>
+</head>
+<body>
+    <div class="mainGrid">
+		<div id="bannerContainer">
+			<label id="banner" style="font-size:180px">Enter Door Code</label>
+			
+		</div>
+    	<input id="ui_DoorCodeBox" style="-ms-grid-column: 21; -ms-grid-row: 30;" type="text">
+    	<div id="hint" style="-ms-grid-column: 20; -ms-grid-row: 47; -ms-grid-column-span:13">
+			<label style="font-size:21px">Check on the back of your doorbell!</label>
+		</div>
+    	<button id="ui_registerButton" style="-ms-grid-column: 28; -ms-grid-row: 34;" type="submit">register</button>
+	</div>
+</body>
+</html>

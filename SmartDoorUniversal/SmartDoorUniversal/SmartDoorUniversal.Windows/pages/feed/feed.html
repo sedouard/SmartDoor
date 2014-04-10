@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>itemPage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/feed/feed.css" rel="stylesheet" />
+    <script src="/js/data.js"></script>
+    <script src="/js/pages/feed/feed.js"></script>
+	<script src="/js/sampleData.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="mainGrid">
+    	<div class="doorbellItemTemplate" data-win-control="WinJS.Binding.Template">
+    		<div id="itemTemplate">
+    			<img class="item-image" src="#" data-win-bind="src:url; alt:title" style="" />
+    			<div class="listItemHeader" data-win-bind="textContent:time"></div>
+    			
+    		</div>
+    	</div>
+    	<div id="activityFeed" data-win-control="WinJS.UI.ListView" data-win-options="{itemDataSource:g_DoorBellFeed.dataSource, itemTemplate:select('.doorbellItemTemplate'),layout : {type: WinJS.UI.ListLayout}}" style="z-index:0"></div>
+    	<div id="sideMenu" data-win-control="WinJS.UI.ViewBox" style="background-color:azure;">
+    		<div style="-ms-grid-column:1; -ms-grid-row:1; -ms-grid-row-span:2; -ms-grid-column-span:5">
+    			<div>
+				</div>
+			</div>
+			<button id="ui_HomeButton" type="button" style="border-width:0; ">
+				<div>
+    				<img id="ui_HomeIcon" src="/images/house.png"  style="position:relative; "/>
+					<label id="ui_homeLabel" style="color:black; position:relative; ">Home</label>
+				</div>
+			</button>
+			<button id="ui_SettingsButton" type="button" style="border-width:0; ">
+    			<div>
+    				<img id="ui_SettingsIcon" src="/images/cog_02.png"  style="position:relative;"/>
+					<label id="ui_SettingsLabel" style="color:black; position:relative;">Settings</label>
+				</div>
+			</button>
+    		<img id="ui_SmartDoorLogo" src="/images/DoorbellIcon.png" style="-ms-grid-column: 3; -ms-grid-row: 3;"/>
+		</div>
+    	
+	</div>
+	<img alt="cog_01" src="/images/cog_02.png">
+</body>
+</html>

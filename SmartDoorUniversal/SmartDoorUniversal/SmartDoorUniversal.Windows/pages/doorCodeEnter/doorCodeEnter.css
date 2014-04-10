@@ -1,0 +1,6 @@
+﻿#bannerContainer {
+-ms-grid-column: 1;
+-ms-grid-row: 10;
+-ms-grid-column-span: 100;
+-ms-grid-row-span: 16;
+}

@@ -1,0 +1,297 @@
+﻿#activityFeed {
+	-ms-grid-column: 1;
+	-ms-grid-row: 3;
+	-ms-grid-column-span: 50;
+	-ms-grid-row-span:46;
+	height:99.2%;
+	z-index:0;
+	left: 0px;
+	top: 0px;
+	}
+.item-image{
+	width: 240px; 
+	height: 210px; 
+	position: relative; 
+	left: 30px; 
+	top: 21px;
+	}
+#itemTemplate{
+	height: 270px;
+	background-color: skyblue;
+	margin:0px;
+	position:relative;
+	left: 30%;
+}
+.listItemHeader {
+	font-size: 20px;
+	font-weight:700;
+	-ms-grid-column-span: 10;
+	-ms-grid-row-span: 5;
+	width: 166px; 
+	height: 49px; 
+	position: relative; 
+	top: -202px;
+	}
+
+#sideMenu {
+	-ms-grid-column: 1; 
+	-ms-grid-row: 1; 
+	-ms-grid-column-span:8; 
+	-ms-grid-row-span:50;
+	display: -ms-grid;
+    width: 100%;
+    height: 100%;
+    -ms-grid-columns: (1fr)[5];
+    -ms-grid-rows: (1fr)[20];
+    left: 10px;
+    top: -10px;
+	}
+ #ui_HomeButton{
+	-ms-grid-column:1; 
+	-ms-grid-row:5; 
+	-ms-grid-column-span:5; 
+	-ms-grid-row-span:1
+	}
+#ui_SettingsButton {
+	-ms-grid-column:1; 
+	-ms-grid-row:6; 
+	-ms-grid-column-span:5; 
+	-ms-grid-row-span:1
+	}
+@media all and (max-width: 1600px) and (min-width: 1600px) {
+  #itemTemplate {
+    width:61.19%;
+  }
+  .listItemHeader{
+		left: 80%; 
+	}
+  #ui_SettingsLabel{
+		font-size:150%;
+		left: -15px; 
+		top: -5.51px;
+	}
+   #ui_homeLabel{
+		font-size:150%;
+		left: -28px; 
+		top: -5.51px;
+	}
+  #ui_SettingsIcon {
+	width:34px;
+	height:34px;
+	left: -24px; 
+	top: 1px;
+  }
+  #ui_HomeIcon {
+	width:34px;
+	height:34px;
+	left: -34px; 
+	top: 1px;
+  }
+}
+@media all and (max-width: 1600px) and (min-width: 1280px) {
+  #itemTemplate {
+    width:61.19%;
+  }
+  .listItemHeader{
+		left: 80%; 
+	}
+  #ui_SettingsLabel{
+		font-size:150%;
+		left: -15px; 
+		top: -5.51px;
+	}
+   #ui_homeLabel{
+		font-size:150%;
+		left: -28px; 
+		top: -5.51px;
+	}
+  #ui_SettingsIcon {
+	width:34px;
+	height:34px;
+	left: -24px; 
+	top: 1px;
+  }
+  #ui_HomeIcon {
+	width:34px;
+	height:34px;
+	left: -34px; 
+	top: 1px;
+  }
+}
+@media all and (max-width: 1920px) and (min-width: 1601px) {
+  #itemTemplate {
+    width:50.19%;
+  }
+  .listItemHeader{
+		left: 776.61px; 
+	}
+	#ui_SettingsLabel{
+		font-size:150%;
+		left: -15px; 
+		top: -5.51px;
+	}
+   #ui_SettingsLabel{
+		font-size:200%;
+		left: -12px; 
+		top: -5.51px;
+	}
+   #ui_homeLabel{
+		font-size:200%;
+		left: -28px; 
+		top: -5.51px;
+	}
+  #ui_SettingsIcon {
+	width:34px;
+	height:34px;
+	left: -20px; 
+	top: 1px;
+  }
+  #ui_HomeIcon {
+	width:34px;
+	height:34px;
+	left: -34px; 
+	top: 1px;
+  }
+}
+@media all and (max-width: 2560px) and (min-width: 1921px) {
+  #itemTemplate {
+    width:55.19%;
+  }
+  .listItemHeader{
+		left: 90%; 
+	}
+  #ui_SettingsLabel{
+		font-size:200%;
+		left: -12px; 
+		top: -5.51px;
+	}
+   #ui_homeLabel{
+		font-size:200%;
+		left: -28px; 
+		top: -5.51px;
+	}
+  #ui_SettingsIcon {
+	width:34px;
+	height:34px;
+	left: -24px; 
+	top: 1px;
+  }
+  #ui_HomeIcon {
+	width:34px;
+	height:34px;
+	left: -39px; 
+	top: 1px;
+  }
+}
+
+@media all and (max-width: 1279px) {
+  #itemTemplate {
+    width:55.19%;
+  }
+  .listItemHeader{
+		left: 75%; 
+	}
+  #ui_SettingsLabel{
+		font-size:125%;
+		left: -20px; 
+		top: -5.51px;
+	}
+   #ui_homeLabel{
+		font-size:125%;
+		left: -28px; 
+		top: -5.51px;
+	}
+  #ui_SettingsIcon {
+	width:34px;
+	height:34px;
+	left: -24px; 
+	top: 1px;
+  }
+  #ui_HomeIcon {
+	width:34px;
+	height:34px;
+	left: -34px; 
+	top: 1px;
+  }
+}
+/*Entering Snap Mode*/
+@media all and (max-width: 800px) {
+
+  #sideMenu {
+	-ms-grid-column: 1; 
+	-ms-grid-row: 1; 
+	-ms-grid-column-span:50; 
+	-ms-grid-row-span:5;
+	display: -ms-grid;
+    width: 102%;
+    height: 100%;
+    -ms-grid-columns: (1fr)[10];
+    -ms-grid-rows: (1fr)[20];
+    left: 0px;
+    top: -10px;
+	}
+/*Side bar becomes top bar*/
+  #ui_SmartDoorLogo{
+	visibility:collapse
+	}
+  #ui_HomeButton{
+	-ms-grid-column:3; 
+	-ms-grid-row:11; 
+	-ms-grid-column-span:3; 
+	-ms-grid-row-span:9
+	}
+  #ui_SettingsButton {
+	-ms-grid-column:6; 
+	-ms-grid-row:11; 
+	-ms-grid-column-span:3; 
+	-ms-grid-row-span:9;
+
+	}
+.item-image{
+	width: 75%; 
+	height: 210px; 
+	position: relative; 
+	left: 15%; 
+	top: 21px;
+	}
+  #activityFeed {
+	-ms-grid-row:5;
+	-ms-grid-row-span:45
+	}
+  #itemTemplate {
+    width:100%;
+	margin:0px;
+	position:relative;
+	left: 0%;
+  }
+  .listItemHeader{
+		left: 300px; 
+		font-size:100%;
+		text-align:right;
+		top:10%
+	}
+  #ui_SettingsLabel{
+		font-size:125%;
+		left: -20px; 
+		top: -5.51px;
+	}
+   #ui_homeLabel{
+		font-size:125%;
+		left: -28px; 
+		top: -5.51px;
+	}
+  #ui_SettingsIcon {
+	width:34px;
+	height:34px;
+	left: -22px; 
+	top: 1px;
+  }
+  #ui_HomeIcon {
+	width:34px;
+	height:34px;
+	left: -31px; 
+	top: 1px;
+  }
+}
+
+
