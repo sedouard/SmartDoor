@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
   <Publisher>CN=67A07641-5D67-4A43-A315-AFCC29EAFA02</Publisher>
-  <NamespacePrefix>52654GVoice</NamespacePrefix>
   <PublisherDisplayName>GVoice</PublisherDisplayName>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
@@ -349,14 +348,15 @@
     <Language Code="zu-za" InMinimumRequirementSet="false" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>52654GVoice.SmartDoor</MainPackageIdentityName>
+    <MainPackageIdentityName>52654GVoice.5654918F5A138</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>Smart Door</ReservedName>
+      <ReservedName>SmartDoor</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>52654GVoice.GiftMe</MainPackageIdentityName>
     <MainPackageIdentityName>52654GVoice.ScenarioTestProjectNWERsedouard</MainPackageIdentityName>
+    <MainPackageIdentityName>52654GVoice.WompityWomp</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/92df7974-0158-4472-bfd2-c92ce8107d9a" />
+  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/4aaeea83-7a5b-4b5f-a7fc-2845614c9fe4" />
 </StoreAssociation>

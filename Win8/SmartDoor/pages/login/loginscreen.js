@@ -10,11 +10,35 @@
         ready: function (element, options) {
             // TODO: Initialize the page here.
             console.log("Initialized login screen!");
+            var fontSize = "100";
+            if ((element.clientWidth == 1440 && element.clientHeight == 1080) || (element.clientWidth == 1024 && element.clientHeight == 768)) {
+                fontSize = "100";
+            } else if ((element.clientWidth == 1920 && element.clientHeight == 1200) || (element.clientWidth == 1366 && element.clientHeight == 768) || (element.clientWidth == 1280 && element.clientHeight == 800)) {
+                fontSize = "200";
+            } else if ((element.clientWidth == 1920 && element.clientHeight == 1080)) {
+                fontSize = "150";
+            } else if ((element.clientWidth == 1280 && element.clientHeight == 800)) {
+                fontSize = "85";
+            }
+            $("#ui_Banner").attr("style", "font-size:" + fontSize + "%");
+
+
             $("#ui_FacebookIcon").click(function (evt) {
                 g_smartdoorClient.login("facebook").done(function (results) {
                     g_authToken = results.mobileServiceAuthenticationToken;
                     g_userId = results.userId;
-                    WinJS.Navigation.navigate("/pages/doorCodeEnter/doorCodeEnter.html");
+
+                    var roamingSettings = g_applicationData.roamingSettings;
+
+                    if (!roamingSettings.values["doorbellId"])
+                    {
+                        WinJS.Navigation.navigate("/pages/doorCodeEnter/doorCodeEnter.html");
+                    }
+                    else {
+                        //TODO: Navigate to 'feed' page.
+                        WinJS.Navigation.navigate("/pages/feed/feed.html");
+                    }
+                    
                 });
             });
             

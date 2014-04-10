@@ -36,7 +36,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>9e506dd9-39f9-417e-85bf-e4a6183f165f</ProjectGuid>
-    <ExpressionBlendVersion>12.0.41212.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>12.0.50320.0</ExpressionBlendVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0'">
@@ -75,16 +75,15 @@
     <Content Include="pages\login\loginscreen.css" />
     <Content Include="pages\login\loginscreen.html" />
     <Content Include="pages\login\loginscreen.js" />
+    <Content Include="sampleData.js" />
     <Content Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
-    <Content Include="services\mobile services\smartdoor\push.register.js">
-      <ConnectedServiceReference>smartdoor</ConnectedServiceReference>
-    </Content>
     <Content Include="services\mobile services\smartdoor\service.js">
       <ConnectedServiceReference>smartdoor</ConnectedServiceReference>
     </Content>
+    <None Include="Design\projectGuides.guides" />
     <None Include="SmartDoor_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="packages.config" />
@@ -94,9 +93,9 @@
     <Content Include="pages\section\section.css" />
     <Content Include="pages\section\section.html" />
     <Content Include="pages\section\section.js" />
-    <Content Include="pages\item\item.css" />
-    <Content Include="pages\item\item.html" />
-    <Content Include="pages\item\item.js" />
+    <Content Include="pages\feed\feed.css" />
+    <Content Include="pages\feed\feed.html" />
+    <Content Include="pages\feed\feed.js" />
     <Content Include="default.html" />
     <PRIResource Include="strings\en-US\resources.resjson" />
     <None Include="SmartDoor_TemporaryKey.pfx" />

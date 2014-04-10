@@ -4,4 +4,4 @@ var g_smartdoorClient = new WindowsAzure.MobileServiceClient(
                 "HnAxDFiMSQATHNaCcgIpEllAhenguj14");
 var g_authToken;
 var g_userId;
-        
+var g_applicationData = Windows.Storage.ApplicationData.current;

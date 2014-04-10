@@ -6,6 +6,6 @@
     display: -ms-grid;
     width: 100%;
     height: 100%;
-    -ms-grid-columns: (1fr)[50];
-    -ms-grid-rows: (1fr)[50];
+    -ms-grid-columns: (1fr)[20];
+    -ms-grid-rows: (1fr)[20]
 }
