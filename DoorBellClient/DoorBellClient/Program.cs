@@ -27,22 +27,37 @@ namespace DoorBellClient
                 photoQuality = args[0];
             }
 
+            Console.CancelKeyPress += Console_CancelKeyPress;
+
             while (true)
             {
                 try
                 {
-                    //Get the service bus authentication - We only need to do this every few hours
-                    GetWrapTokenIfExpired();
                     
-                    //Poll the pin 10Hz. Assuming a HI true
-                    if (s_Gpio.InputPin(FileGPIO.FileGPIO.enumPIN.gpio22))
+                    if (!s_Gpio.InputPin(FileGPIO.FileGPIO.enumPIN.gpio17))
                     {
-                        TakeAndSendPicture();
+                        //Get the service bus authentication - We only need to do this every few hours
+                        GetWrapTokenIfExpired();
+                        showReady(true);
+                        //Poll the pin 10Hz. Assuming a HI true
+                        if (s_Gpio.InputPin(FileGPIO.FileGPIO.enumPIN.gpio22))
+                        {
+                            showReady(false);
+                            TakeAndSendPicture();
+                        }
                     }
+                    else
+                    {
+                        showReady(false);
+                        //hardware stop button.
+                        break;
+                    }
+                    
                 }
                 //Never crash. Print the error. Possible connection errors can land us here
                 catch (Exception e)
                 {
+                    showReady(false);
                     Console.WriteLine("Encountered an error. Check this exception " + e);
                     Console.WriteLine("Restarting...");
                 }
@@ -51,6 +66,15 @@ namespace DoorBellClient
             }
         }
 
+        static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        static void showReady(bool ready)
+        {
+            s_Gpio.OutputPin(FileGPIO.FileGPIO.enumPIN.gpio4, ready);
+        }
         static void GetWrapTokenIfExpired()
         {
             //if this is the first time or the wrap token expired
@@ -83,14 +107,27 @@ namespace DoorBellClient
                     wrapExpSecs = Int32.Parse(wrapExp);
 
                     wrapToken = HttpUtility.UrlDecode(wrapToken);
+                    startTime = DateTime.Now;
                 }
             }
         }
 
         static void TakeAndSendPicture()
         {
+                
+#if LINUX
+                //Start photo taking process
+                //This will kick off the process we'll wait for it after we get the photo url
+                Process raspistill = new Process();
+                raspistill.StartInfo = new ProcessStartInfo("/usr/bin/raspistill", "-n -q " + photoQuality + " -o /home/pi/Desktop/me.jpg -h 200 -w 200 -t 500")
+                {
+                    UseShellExecute = false
+                };
 
-                //Get Photo
+                raspistill.Start();
+#endif
+
+                //Get Photo Url while the picture is being taken
                 WebRequest photoRequest = WebRequest.Create("https://smartdoor.azure-mobile.net/api/photo?doorbellID=" + deviceID);
                 photoRequest.Method = "GET";
                 PhotoResponse photoResp = null;
@@ -107,11 +144,20 @@ namespace DoorBellClient
                 WebRequest putPhotoRequest = WebRequest.Create(photoResp.sasUrl);
                 putPhotoRequest.Method = "PUT";
                 putPhotoRequest.Headers.Add("x-ms-blob-type", "BlockBlob");
-                using (var photoStream = GetPhoto())
+
+#if LINUX
+                //wait til the photo was taken.
+                raspistill.WaitForExit();
+                FileStream fs = new FileStream(@"/home/pi/Desktop/me.jpg", FileMode.Open);
+#else
+                FileStream fs = new FileStream(@"2ca1fc68-8293-4ff5-9aac-20e6bfc65fc7.jpg", FileMode.Open);
+#endif
+
+                using (fs)
                 using (var reqStream = putPhotoRequest.GetRequestStream())
                 {
                     Console.WriteLine("Writing photo to blob...");
-                    photoStream.CopyTo(reqStream);
+                    fs.CopyTo(reqStream);
                 }
 
                 using (putPhotoRequest.GetResponse())
@@ -155,25 +201,6 @@ namespace DoorBellClient
             return Encoding.ASCII.GetBytes(str);
         }
 
-        static Stream GetPhoto()
-        {
-#if LINUX
-            //TODO: Replace this with our Raspberry Pi Camera
-            Process raspistill = new Process();
-            raspistill.StartInfo = new ProcessStartInfo("/usr/bin/raspistill", "-n -q " + photoQuality + " -o /home/pi/Desktop/me.jpg -h 200 -w 200 -t 500")
-            {
-                UseShellExecute = false
-            };
-
-            raspistill.Start();
-            raspistill.WaitForExit();
-
-            FileStream fs = new FileStream(@"/home/pi/Desktop/me.jpg", FileMode.Open);
-#else
-            FileStream fs = new FileStream(@"2ca1fc68-8293-4ff5-9aac-20e6bfc65fc7.jpg", FileMode.Open);
-#endif
-            return fs;
-        }
     }
 
     public class DoorBellNotification
@@ -186,6 +213,7 @@ namespace DoorBellClient
     {
         public string sasUrl { get; set; }
         public string photoId { get; set; }
+        public string expiry { get; set; }
     }
 
 }
