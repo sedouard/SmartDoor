@@ -9,11 +9,23 @@
     var sched = WinJS.Utilities.Scheduler;
     var ui = WinJS.UI;
 
+    
     app.addEventListener("activated", function (args) {
-        if (args.detail.kind === activation.ActivationKind.launch) {
+        if (args.detail.kind == activation.ActivationKind.webAuthenticationBrokerContinuation) {
+
+            FacebookAuthenticate.callbackFacebookWebAuth(args.detail.webAuthenticationResult);
+        }
+        else if (args.detail.kind === activation.ActivationKind.launch) {
+            $("#ui_SettingsButton").click(function (evt) {
+                WinJS.Navigation.navigate("/pages/settings/settings.html");
+            });
+            $("#ui_HomeButton").click(function (evt) {
+                WinJS.Navigation.navigate("/pages/feed/feed.html");
+            });
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-                // TODO: This application has been newly launched. Initialize
+                // This application has been newly launched. Initialize
                 // your application here.
+                
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.

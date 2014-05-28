@@ -6,18 +6,30 @@
         refreshFeed(roamingSettings.values["doorbellId"]);
     };
 
-    function refreshFeed(id) {
+    function refreshFeed(id, feed) {
+        var miliSeconds = new Date().getTime();
         g_smartdoorClient.invokeApi('photos', {
             method: 'GET',
             parameters: {
-                doorBellID: id
+                doorBellID: id,
+                //The invokeApi api has a caching behavior. If we make the requests
+                //unqiue we will force the mobile services client lib to get fresh data
+                dummyTime: miliSeconds
             }
         }).done(function (data) {
 
-            //clear current feed
-            for (var i in g_DoorBellFeed) {
-                g_DoorBellFeed.pop();
-            }
+            
+
+            var listView = $("#ui_activityFeed")[0].winControl;
+            listView.addEventListener("iteminvoked", function (evt) {
+                var index = evt.detail.itemIndex;
+                var albums = new Array();
+
+                //get profile photos for user
+                var feedItem = feed.getItem(index).data;
+
+                WinJS.Navigation.navigate('/pages/person/person.html', feedItem);
+            });
 
             for (var i = data.result.length-1; i >= 0; i--) {
                 var time = data.result[i].timestamp;
@@ -26,14 +38,14 @@
 
                 //Show relative times
                 if (currentTime.getYear() == date.getYear() && currentTime.getMonth() == date.getMonth() &&
-                    currentTime.getDay() == date.getDay() && currentTime.getHours() == date.getHours() &&
+                    currentTime.getDate() == date.getDate() && currentTime.getHours() == date.getHours() &&
                     currentTime.getSeconds() == date.getSeconds()) {
 
                     data.result[i].time = 'just now';
 
                 }
                 else if (currentTime.getYear() == date.getYear() && currentTime.getMonth() == date.getMonth() &&
-                    currentTime.getDay() == date.getDay() && currentTime.getHours() == date.getHours() &&
+                    currentTime.getDate() == date.getDate() && currentTime.getHours() == date.getHours() &&
                     currentTime.getMinutes() == date.getMinutes()) {
 
                     var delta = currentTime.getSeconds() - date.getSeconds();
@@ -42,7 +54,7 @@
 
                 }
                 else if (currentTime.getYear() == date.getYear() && currentTime.getMonth() == date.getMonth() &&
-                    currentTime.getDay() == date.getDay() && currentTime.getHours() == date.getHours()) {
+                    currentTime.getDate() == date.getDate() && currentTime.getHours() == date.getHours()) {
 
                     var delta = currentTime.getMinutes() - date.getMinutes();
 
@@ -50,7 +62,7 @@
 
                 }
                 else if (currentTime.getYear() == date.getYear() && currentTime.getMonth() == date.getMonth() &&
-                    currentTime.getDay() == date.getDay()) {
+                    currentTime.getDate() == date.getDate()) {
 
                     var delta = currentTime.getHours() - date.getHours();
 
@@ -59,14 +71,14 @@
                 }
                 else if (currentTime.getYear() == date.getYear() && currentTime.getMonth() == date.getMonth()) {
 
-                    var delta = currentTime.getDay() - date.getDay();
+                    var delta = currentTime.getDate() - date.getDate();
 
                     data.result[i].time = delta + ' days ago';
 
                 }
                 else if (currentTime.getYear() == date.getYear()) {
 
-                    var delta = currentTime.getMonths() - date.getMonths();
+                    var delta = currentTime.getMonth() - date.getMonth();
 
                     data.result[i].time = delta + ' months ago';
 
@@ -78,7 +90,10 @@
                     data.result[i].time = delta + ' years ago';
 
                 }
-                g_DoorBellFeed.push(data.result[i]);
+                if (!data.result[i].identifiedPerson) {
+                    data.result[i].identifiedPerson = { name: "" };
+                }
+                feed.push(data.result[i]);
             }
 
         }, function (error) {
@@ -91,12 +106,19 @@
     WinJS.UI.Pages.define("/pages/feed/feed.html", {
         // This function is called whenever a user navigates to this page. It
         // populates the page elements with the app's data.
-
+        init: function(element, options){
+            g_DoorBellFeed = new WinJS.Binding.List();
+        },
         ready: function (element, options) {
+            $("#sideMenu").show();
+            
             var roamingSettings = g_applicationData.roamingSettings;
-            g_UpdatePushNotificationForDoorBell(roamingSettings.values["doorbellId"], onPush);
+            g_UpdatePushNotificationForDoorBell(roamingSettings.values["doorbellId"], roamingSettings.values["userid"], onPush);
 
-            refreshFeed(roamingSettings.values["doorbellId"]);
+            refreshFeed(roamingSettings.values["doorbellId"], g_DoorBellFeed);
+            
+
+            
             //Get the photos for doorbell
 
             // TODO: Initialize the page here.

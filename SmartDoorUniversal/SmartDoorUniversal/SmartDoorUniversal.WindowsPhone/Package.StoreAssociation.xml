@@ -189,6 +189,10 @@
       <ReservedName>SmartDoor</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
-  <AccountPackageIdentityNames />
+  <AccountPackageIdentityNames>
+    <MainPackageIdentityName>52654GVoice.GiftMe</MainPackageIdentityName>
+    <MainPackageIdentityName>52654GVoice.ScenarioTestProjectNWERsedouard</MainPackageIdentityName>
+    <MainPackageIdentityName>52654GVoice.WompityWomp</MainPackageIdentityName>
+  </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=4aaeea83-7a5b-4b5f-a7fc-2845614c9fe4" />
 </StoreAssociation>

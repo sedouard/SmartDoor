@@ -1,12 +1,12 @@
 ﻿// http://go.microsoft.com/fwlink/?LinkID=290993&clcid=0x409
 var g_smartdoorClient = new WindowsAzure.MobileServiceClient(
-                "https://smartdoor.azure-mobile.net/",
+                "https://smartdoor.azure-mobile.net",
                 "HnAxDFiMSQATHNaCcgIpEllAhenguj14");
 var g_authToken;
 var g_userId;
 var g_applicationData = Windows.Storage.ApplicationData.current;
 
-function g_UpdatePushNotificationForDoorBell(doorBellID, onPushNotification) {
+function g_UpdatePushNotificationForDoorBell(doorBellID, userid, onPushNotification) {
     var packageToken = Windows.System.Profile.HardwareIdentification.getPackageSpecificToken(null);
     var installationId = Windows.Security.Cryptography.CryptographicBuffer.encodeToBase64String(packageToken.id);
 
@@ -24,7 +24,7 @@ function g_UpdatePushNotificationForDoorBell(doorBellID, onPushNotification) {
             doorBellID: doorBellID,
             users: [
                 {
-                    id: g_userId,
+                    id: userid,
                     mobileDevices: [
                         {
                             deviceId: installationId,
@@ -37,7 +37,7 @@ function g_UpdatePushNotificationForDoorBell(doorBellID, onPushNotification) {
         var tags = new Array();
 
         //Register this device for the logged in user to the notification hub
-        tags.push(g_userId);
+        tags.push(userid);
 
         //Register this device for the currently subscribed door bell
         tags.push(doorBellID);

@@ -7,15 +7,54 @@
     <ExpressionBlendVersion>12.0.50320.0</ExpressionBlendVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)css\default.css" />
+    <Content Include="$(MSBuildThisFileDirectory)images\cog_02.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\connectfacebook.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\DoorbellIcon.png" />
-    <Content Include="$(MSBuildThisFileDirectory)js\data.js" />
+    <Content Include="$(MSBuildThisFileDirectory)images\emptyIcon.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\house.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\icon.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\id_icon.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\logo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\smalllogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\splashscreen.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\storelogo.scale-100.png" />
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\MobileServices.intellisense.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\MobileServices.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\MobileServices.min.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\MobileServices.pri" />
     <Content Include="$(MSBuildThisFileDirectory)js\navigator.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\pages\doorCodeEnter\doorCodeEnter.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\pages\feed\feed.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\pages\login\loginscreen.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\pages\trainingSelect\trainingSelect.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\pages\person\person.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\pages\profilepictures\profilepictures.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\pages\settings\settings.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\sampleData.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\service\mobileservice.js" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\doorCodeEnter\doorCodeEnter.css" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\doorCodeEnter\doorCodeEnter.html" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\feed\feed.css" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\feed\feed.html" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\login\loginscreen.css" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\login\loginscreen.html" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\person\person.css" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\person\person.html" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\profilepictures\profilepictures.css" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\profilepictures\profilepictures.html" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\settings\settings.css" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\settings\settings.html" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\trainingSelect\trainingSelect.css" />
+    <Content Include="$(MSBuildThisFileDirectory)pages\trainingSelect\trainingSelect.html" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\jquery-2.1.0.js" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\jquery-2.1.0.min.js" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\jquery-2.1.0.min.map" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\MobileServices.intellisense.js" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\MobileServices.js" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\MobileServices.min.js" />
+    <Content Include="$(MSBuildThisFileDirectory)Scripts\MobileServices.pri" />
   </ItemGroup>
 </Project>

@@ -144,3 +144,39 @@
 		-ms-grid-row-span:1;
 	}
 }
+/**
+PHONE
+**/
+@media all and (max-width: 480px) {
+	#doorbellgrid {
+	-ms-grid-column: 33;
+	-ms-grid-row: 30;
+	-ms-grid-column-span: 18;
+	-ms-grid-row-span: 20;
+	z-index:-1
+	}
+	#ui_SmartDoorBannerLabel{
+		font-size:500%
+	}
+	.banner {
+		-ms-grid-column:1; 
+		-ms-grid-row:1; 
+		-ms-grid-column-span:50; 
+		-ms-grid-row-span:30;
+	}
+	#ui_TagLineDiv{
+		-ms-grid-column:1; 
+		-ms-grid-row:6; 
+		-ms-grid-column-span:10; 
+		-ms-grid-row-span:3;
+	}
+	#ui_TagLine{
+		left:30%
+	}
+	#ui_FacebookIconDiv{
+		-ms-grid-column:5; 
+		-ms-grid-row:08; 
+		-ms-grid-column-span:2; 
+		-ms-grid-row-span:1;
+	}
+}

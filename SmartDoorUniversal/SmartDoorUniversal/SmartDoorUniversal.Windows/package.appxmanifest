@@ -15,7 +15,9 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <m2:VisualElements DisplayName="SmartDoor" Description="SmartDoorUniversal.Windows" ForegroundText="light" BackgroundColor="#000000" Square150x150Logo="images\Logo.png" Square30x30Logo="images\SmallLogo.png" ToastCapable="true">
+      <m2:VisualElements DisplayName="SmartDoor" Description="SmartDoorUniversal.Windows" ForegroundText="dark" BackgroundColor="#DFF3F2" Square150x150Logo="images\Logo.png" Square30x30Logo="images\SmallLogo.png" ToastCapable="true">
+        <m2:DefaultTile ShortName="SmartDoor" DefaultSize="square150x150Logo" Square70x70Logo="images\Square70x70Logo.png">
+        </m2:DefaultTile>
         <m2:SplashScreen Image="images\splashscreen.png" />
       </m2:VisualElements>
     </Application>
@@ -24,6 +26,6 @@
     <Capability Name="internetClient" />
   </Capabilities>
   <build:Metadata>
-    <build:Item Name="Blend" Version="12.0.50320.0" />
+    <build:Item Name="Blend" Version="12.0.50429.0" />
   </build:Metadata>
 </Package>

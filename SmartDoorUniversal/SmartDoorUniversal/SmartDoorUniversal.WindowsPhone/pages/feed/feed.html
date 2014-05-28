@@ -18,35 +18,18 @@
 <body>
     <!-- The content that will be loaded and displayed. -->
     <div class="mainGrid">
-    	<div class="doorbellItemTemplate" data-win-control="WinJS.Binding.Template">
-    		<div id="itemTemplate">
-    			<img class="item-image" src="#" data-win-bind="src:url; alt:title" style="" />
-    			<div class="listItemHeader" data-win-bind="textContent:time"></div>
-    			
+    	<div class="doorbellfeedItemTemplate" style="margin:-100px" data-win-control="WinJS.Binding.Template">
+    		<div id="feedItemTemplate">
+    			<img class="feeditem-image" src="#" data-win-bind="src:url; alt:title" style="" />
+    			<div class="feedItemHeader" data-win-bind="textContent:time"></div>
+				<div class="listItemName" data-win-bind="textContent:identifiedPerson.name" style="left: 68px;"></div>
     		</div>
     	</div>
-    	<div id="activityFeed" data-win-control="WinJS.UI.ListView" data-win-options="{itemDataSource:g_DoorBellFeed.dataSource, itemTemplate:select('.doorbellItemTemplate'),layout : {type: WinJS.UI.ListLayout}}" style="z-index:0"></div>
-    	<div id="sideMenu" data-win-control="WinJS.UI.ViewBox" style="background-color:azure;">
-    		<div style="-ms-grid-column:1; -ms-grid-row:1; -ms-grid-row-span:2; -ms-grid-column-span:5">
-    			<div>
-				</div>
-			</div>
-			<button id="ui_HomeButton" type="button" style="border-width:0; ">
-				<div>
-    				<img id="ui_HomeIcon" src="/images/house.png"  style="position:relative; "/>
-					<label id="ui_homeLabel" style="color:black; position:relative; ">Home</label>
-				</div>
-			</button>
-			<button id="ui_SettingsButton" type="button" style="border-width:0; ">
-    			<div>
-    				<img id="ui_SettingsIcon" src="/images/cog_02.png"  style="position:relative;"/>
-					<label id="ui_SettingsLabel" style="color:black; position:relative;">Settings</label>
-				</div>
-			</button>
-    		<img id="ui_SmartDoorLogo" src="/images/DoorbellIcon.png" style="-ms-grid-column: 3; -ms-grid-row: 3;"/>
-		</div>
+    	<div id="ui_activityFeed" data-win-control="WinJS.UI.ListView" data-win-options="{itemDataSource:g_DoorBellFeed.dataSource, itemTemplate:select('.doorbellfeedItemTemplate'),layout : {type: WinJS.UI.ListLayout}}" style="z-index:0; background-color:transparent"></div>
+    	
     	
 	</div>
 	<img alt="cog_01" src="/images/cog_02.png">
+	<img alt="house" src="/pages/feed/house.png">
 </body>
 </html>

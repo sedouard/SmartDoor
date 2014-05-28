@@ -8,12 +8,16 @@
     <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
     <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
     <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
-
+    
     <!-- smartdoor references -->
     <script src="/Scripts/jquery-2.1.0.js"></script>
+    <script type="text/html">
+        jQuery.isUnsafe = true;
+    </script>
+    <script src="/Scripts/angular.min.js"></script>
     <!-- SmartDoor references -->
     <link href="/css/default.css" rel="stylesheet" />
-    <script src="/Scripts/MobileServices.js"></script>
+    <script src="/js/MobileServices.js"></script>
     <script src="/js/service/mobileservice.js"></script>
     <script src="/js/data.js"></script>
     <script src="/js/navigator.js"></script>
@@ -21,10 +25,32 @@
     
 </head>
 <body>
-    <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/login/loginscreen.html'}"></div>
+	<div class="defaultGrid">
+		<div id="sideMenu" data-win-control="WinJS.UI.ViewBox" style="background-color:rgb(0,81,126);">
+    			<div style="-ms-grid-column:1; -ms-grid-row:1; -ms-grid-row-span:2; -ms-grid-column-span:5">
+    				<div>
+					</div>
+				</div>
+				<button id="ui_HomeButton" type="button" style="border-width:0;">
+					<div>
+    					<img id="ui_HomeIcon" src="/images/house.png"  style="position:relative; width: 47px; height: 46px; left: -23.85px; top: -2.06px; "/>
+						<label id="ui_homeLabel" style="color:rgb(223,243,242); position:relative; left: -18.33px; top: -14.5px; width: 61px; ">Home</label>
+					</div>
+				</button>
+				<button id="ui_SettingsButton" type="button" style="border-width:0; ">
+    				<div>
+    					<img id="ui_SettingsIcon" src="/images/cog_02.png"  style="position:relative; width: 52px; height: 51.53px; left: -16.01px; top: -2.13px;"/>
+						<label id="ui_SettingsLabel" style="color:rgb(223,243,242); position:relative; left: -15.33px; top: -17.85px;">Settings</label>
+					</div>
+				</button>
+    			<img id="ui_SmartDoorLogo" src="/images/DoorbellIcon.png" style="-ms-grid-column: 3; -ms-grid-row: 3;"/>
+		</div>
+		<div id="contenthost" style="-ms-grid-column:2;-ms-grid-column-span:9;-ms-grid-row-span:20" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/login/loginscreen.html'}"></div>
+	</div>
+    
     <!-- <div id="appbar" data-win-control="WinJS.UI.AppBar">
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmd', label:'Command', icon:'placeholder'}" type="button"></button>
     </div> -->
-
+	
 </body>
 </html>
